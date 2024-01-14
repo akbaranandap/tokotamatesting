@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ProductCategory {
+  id      Int       @id @default(autoincrement())
+  name    String
+  Product Product[]
+}
+
+model Review {
+  id        Int     @id @default(autoincrement())
+  name      String
+  review    String
+  productId Int
+  Product   Product @relation(fields: [productId], references: [id])
+}
+
+model File {
+  id           Int           @id @default(autoincrement())
+  path         String
+  ProductImage ProductImage?
+}
+
+model ProductImage {
+  id        Int      @id @default(autoincrement())
+  fileId    Int      @unique
+  File      File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  featured  Boolean
+  productId Int?
+  Product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id          Int             @id @default(autoincrement())
+  name        String
+  image       ProductImage[]
+  description String
+  price       String
+  categoryId  Int
+  category    ProductCategory @relation(fields: [categoryId], references: [id])
+  reviews     Review[]
+  CartProduct CartProduct[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  isAdmin   Boolean  @default(false)
+  username  String   @unique
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  Cart      Cart?
+}
+
+model Cart {
+  id          Int           @id @default(autoincrement())
+  userId      Int           @unique
+  User        User          @relation(fields: [userId], references: [id])
+  cartProduct CartProduct[]
+}
+
+model CartProduct {
+  productId Int
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  cartId    Int
+  cart      Cart    @relation(fields: [cartId], references: [id])
+
+  @@id([productId, cartId])
+}

@@ -1,0 +1,85 @@
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --success: 135 61.5% 49.2%;
+  --success-foreground: 210 40% 98%;
+
+  --info: 202.3 97.1% 50.6%;
+  --info-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --radius: 0.5rem;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.dropdown-toggle::after {
+  margin-left: 0.5rem !important;
+}
+
+.carousel-control-prev {
+  justify-content: start !important;
+}
+
+.carousel-control-next {
+  justify-content: end !important;
+}
+
+/* [class$="-primary"] {
+  background-color: #00ADB5;
+} */
+.btn-primary {
+  background-color: #00ADB5;
+  color: white;
+  border: #00ADB5;
+}
+.btn-danger {
+  background-color: #FF0000;
+  color: white;
+  border: #FF0000;
+}
+.text-primary {
+  color: #00ADB5;
+}
+.text-secondary {
+  color: #393E46;
+}
+.btn-secondary {
+  background-color: #393E46;
+  color: #00ADB5;
+}
